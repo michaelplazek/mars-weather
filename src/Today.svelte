@@ -6,6 +6,7 @@
     todayMinTemperature,
     todayMaxTemperature
   } from "./store.js";
+  import Cell from "./Cell.svelte";
 </script>
 
 <style>
@@ -13,6 +14,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+				justify-content: center;
         margin: 0;
     }
     .range {
@@ -39,24 +41,25 @@
     }
 </style>
 
-<div class="today">
-	<div class="dates">
-		<h2 class="today-on-mars">
-			{$todayOnMars}
-		</h2>
-		<h3 class="today-on-earth">
-			{$todayOnEarth}
-		</h3>
-	</div>
-	<div class="weather">
-		<h1 class="average">
-			{@html $todayAverageTemperature}
-		</h1>
-		<div class="range">
-			<span class="min">{@html $todayMinTemperature}</span>
-			<span>{` | `}</span>
-			<span class="max">{@html $todayMaxTemperature}</span>
+<Cell>
+	<div class="today">
+		<div class="dates">
+			<h2 class="today-on-mars">
+				{$todayOnMars}
+			</h2>
+			<h3 class="today-on-earth">
+				{$todayOnEarth}
+			</h3>
 		</div>
-
+		<div class="weather">
+			<h1 class="average">
+				{@html $todayAverageTemperature}
+			</h1>
+			<div class="range">
+				<span class="min">{@html $todayMinTemperature}</span>
+				<span>{` | `}</span>
+				<span class="max">{@html $todayMaxTemperature}</span>
+			</div>
+		</div>
 	</div>
-</div>
+</Cell>

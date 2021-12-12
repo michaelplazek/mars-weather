@@ -15,12 +15,26 @@
 
 <style>
     .top {
-        justify-self: center;
-        align-self: center;
+        display: grid;
     }
+		.header {
+				display: flex;
+				flex-direction: row;
+				margin: 12px;
+				align-items: center;
+		}
+		.header > h1 {
+				font-size: 28px;
+				color: #FFFFF0;
+				margin: 0 0 0 12px;
+		}
 </style>
 
 <div class="container">
+	<div class="header">
+		<img src="./images/nasa_logo.svg" alt="NASA logo" width="50px" height="50px">
+		<h1>What is the weather on Mars?</h1>
+	</div>
 	<div class="top">
 		<Today />
 	</div>

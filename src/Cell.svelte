@@ -13,6 +13,9 @@ export let title = '';
     }
 		.content {
 				margin: 6px 12px 12px 12px;
+				display: flex;
+        flex: 1;
+				align-items: center;
 		}
 		.title {
 				margin-bottom: 0;
