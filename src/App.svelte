@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
 
-	import Today from './Today.svelte';
+  import Today from './Today.svelte';
   import Pressure from "./Pressure.svelte";
   import WindSpeed from "./WindSpeed.svelte";
   import WindDirection from "./WindDirection.svelte";
@@ -14,17 +14,17 @@
 </script>
 
 <style>
-	.top {
-      justify-self: center;
-			align-self: center;
-	}
+    .top {
+        justify-self: center;
+        align-self: center;
+    }
 </style>
 
 <div class="container">
 	<div class="top">
 		<Today />
 	</div>
-	<div class="bottom-left">
+	<div class="bottom-left split">
 		<Pressure />
 		<WindSpeed />
 		<WindDirection />

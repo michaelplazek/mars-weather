@@ -9,11 +9,11 @@
 </script>
 
 <style>
-		.pressure {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-		}
+	.pressure {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+	}
 	.average {
 			font-size: 36px;
 			margin: 0;

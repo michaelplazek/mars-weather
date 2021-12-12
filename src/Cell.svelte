@@ -12,7 +12,7 @@ export let title = '';
         background: #FFFFF0;
     }
 		.content {
-				margin: 12px;
+				margin: 6px 12px 12px 12px;
 		}
 		.title {
 				margin-bottom: 0;
