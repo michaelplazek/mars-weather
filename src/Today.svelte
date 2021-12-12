@@ -57,7 +57,7 @@
 			</h1>
 			<div class="range">
 				<span class="min">{@html $todayMinTemperature}</span>
-				<span>{` | `}</span>
+				<span>{@html '&nbsp;|&nbsp;'}</span>
 				<span class="max">{@html $todayMaxTemperature}</span>
 			</div>
 		</div>

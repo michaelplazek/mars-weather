@@ -89,6 +89,11 @@ button:focus {
 	grid-row: bottom;
 }
 
+.bottom-right {
+	grid-column: 2 / span 1;
+	grid-row: bottom;
+}
+
 .split {
 	display: grid;
 	grid-template-rows: 33% 33% 33%;

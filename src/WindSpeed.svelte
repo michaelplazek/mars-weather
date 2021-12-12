@@ -26,9 +26,9 @@
 			{$todayAverageWind}
 		</h4>
 		<div class="range">
-			<span class="min">{$todayMaxWind}</span>
-			<span>{` | `}</span>
-			<span class="max">{$todayMinWind}</span>
+			<span class="min">{$todayMinWind}</span>
+			<span>{@html '&nbsp;|&nbsp;'}</span>
+			<span class="max">{$todayMaxWind}</span>
 		</div>
 	</div>
 </Cell>

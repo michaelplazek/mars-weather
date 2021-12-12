@@ -5,6 +5,7 @@
   import Pressure from "./Pressure.svelte";
   import WindSpeed from "./WindSpeed.svelte";
   import WindDirection from "./WindDirection.svelte";
+  import History from "./History.svelte";
 
   import { fetchWeatherData } from "./utils";
 
@@ -17,6 +18,9 @@
     .top {
         display: grid;
     }
+		.bottom-right {
+				display: grid;
+		}
 		.header {
 				display: flex;
 				flex-direction: row;
@@ -42,5 +46,8 @@
 		<Pressure />
 		<WindSpeed />
 		<WindDirection />
+	</div>
+	<div class="bottom-right">
+		<History />
 	</div>
 </div>

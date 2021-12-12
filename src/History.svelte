@@ -9,19 +9,20 @@
 </script>
 
 <style>
-	.pressure {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-	}
-	.average {
-			font-size: 36px;
-			margin: 0;
-	}
+    .history {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+				flex: 1;
+    }
+    .average {
+        font-size: 36px;
+        margin: 0;
+    }
 </style>
 
-<Cell title="Atmospheric Pressure">
-	<div class="pressure">
+<Cell title="Historical Data - Past 7 Days">
+	<div class="history">
 		<h4 class="average">
 			{@html $todayAveragePressure}
 		</h4>
