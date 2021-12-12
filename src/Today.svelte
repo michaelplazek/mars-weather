@@ -15,7 +15,7 @@
         align-items: center;
         margin: 0;
     }
-    . range {
+    .range {
         display: flex;
         flex-direction: row;
         align-self: center;
@@ -54,6 +54,7 @@
 		</h1>
 		<div class="range">
 			<span class="min">{@html $todayMinTemperature}</span>
+			<span>{` | `}</span>
 			<span class="max">{@html $todayMaxTemperature}</span>
 		</div>
 

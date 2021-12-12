@@ -1,7 +1,11 @@
 <script>
   import { onMount } from 'svelte';
-	import Cell from './Cell.svelte';
+
 	import Today from './Today.svelte';
+  import Pressure from "./Pressure.svelte";
+  import WindSpeed from "./WindSpeed.svelte";
+  import WindDirection from "./WindDirection.svelte";
+
   import { fetchWeatherData } from "./utils";
 
   onMount(async () => {
@@ -20,6 +24,9 @@
 	<div class="top">
 		<Today />
 	</div>
-	<Cell />
-	<Cell />
+	<div class="bottom-left">
+		<Pressure />
+		<WindSpeed />
+		<WindDirection />
+	</div>
 </div>

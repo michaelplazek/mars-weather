@@ -22,3 +22,5 @@ export const fetchWeatherData = async () => {
 }
 
 export const formatTemperature = (temp = 0) => `${temp.toFixed(1)}&deg; F`
+export const formatPressure = (pressure = 0) => `${pressure.toFixed(4)} Pa`
+export const formatWind = (wind = 0) => `${wind.toFixed(2)} m/s`

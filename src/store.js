@@ -1,5 +1,5 @@
 import { writable, derived } from 'svelte/store';
-import { formatTemperature } from "./utils";
+import { formatPressure, formatTemperature, formatWind } from "./utils";
 
 export const weather = writable([]);
 export const atmosphericTemperatures = derived(
@@ -45,5 +45,33 @@ export const todayMinTemperature = derived(
 export const todayMaxTemperature = derived(
   today,
   $today => $today ? `Max: ${formatTemperature($today?.AT.mx)}` : ''
+);
+export const todayAveragePressure = derived(
+  today,
+  $today => $today ? formatPressure($today?.PRE.av) : '--'
+);
+export const todayMinPressure = derived(
+  today,
+  $today => $today ? `Min: ${formatPressure($today?.PRE.mn)}` : ''
+);
+export const todayMaxPressure = derived(
+  today,
+  $today => $today ? `Max: ${formatPressure($today?.PRE.mx)}` : ''
+);
+export const todayAverageWind = derived(
+  today,
+  $today => $today ? formatWind($today?.PRE.av) : '--'
+);
+export const todayMinWind = derived(
+  today,
+  $today => $today ? `Min: ${formatWind($today?.PRE.mn)}` : ''
+);
+export const todayMaxWind = derived(
+  today,
+  $today => $today ? `Max: ${formatWind($today?.PRE.mx)}` : ''
+);
+export const todayWindDirection = derived(
+  today,
+  $today => $today ? $today?.WD.most_common.compass_point : ''
 );
 
