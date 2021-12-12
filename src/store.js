@@ -2,6 +2,7 @@ import { writable, derived } from "svelte/store";
 import { formatPressure, formatTemperature, formatWind } from "./utils";
 
 export const weather = writable([]);
+
 export const atmosphericTemperatures = derived(weather, ($weather) =>
   $weather.map(({ AT }) => AT)
 );
@@ -24,6 +25,7 @@ export const todayOnEarth = derived(today, ($today) => {
 export const todayOnMars = derived(today, ($today) =>
   $today ? `Sol ${$today?.sol}` : ""
 );
+
 export const todayAverageTemperature = derived(today, ($today) =>
   $today ? formatTemperature($today?.AT.av) : "--"
 );
@@ -33,6 +35,7 @@ export const todayMinTemperature = derived(today, ($today) =>
 export const todayMaxTemperature = derived(today, ($today) =>
   $today ? `Max: ${formatTemperature($today?.AT.mx)}` : ""
 );
+
 export const todayAveragePressure = derived(today, ($today) =>
   $today ? formatPressure($today?.PRE.av) : "--"
 );
@@ -42,15 +45,49 @@ export const todayMinPressure = derived(today, ($today) =>
 export const todayMaxPressure = derived(today, ($today) =>
   $today ? `Max: ${formatPressure($today?.PRE.mx)}` : ""
 );
+
 export const todayAverageWind = derived(today, ($today) =>
-  $today ? formatWind($today?.PRE.av) : "--"
+  $today ? formatWind($today?.HWS.av) : "--"
 );
 export const todayMinWind = derived(today, ($today) =>
-  $today ? `Min: ${formatWind($today?.PRE.mn)}` : ""
+  $today ? `Min: ${formatWind($today?.HWS.mn)}` : ""
 );
 export const todayMaxWind = derived(today, ($today) =>
-  $today ? `Max: ${formatWind($today?.PRE.mx)}` : ""
+  $today ? `Max: ${formatWind($today?.HWS.mx)}` : ""
 );
 export const todayWindDirection = derived(today, ($today) =>
   $today ? $today?.WD.most_common.compass_point : ""
 );
+
+export const historicalTemperatures = derived(weather, ($weather) => (
+  $weather.reduce((accum, { sol, AT }) => ({
+    labels: [...accum.labels, sol],
+    datasets: [
+      {
+        values: [...accum.datasets[0].values, AT.av]
+      }
+    ]
+  }), { labels: [], datasets: [{values: []}] })
+))
+
+export const historicalPressures = derived(weather, ($weather) => (
+  $weather.reduce((accum, { sol, PRE }) => ({
+    labels: [...accum.labels, sol],
+    datasets: [
+      {
+        values: [...accum.datasets[0].values, PRE.av]
+      }
+    ]
+  }), { labels: [], datasets: [{values: []}] })
+));
+
+export const historicalWindSpeeds = derived(weather, ($weather) => (
+  $weather.reduce((accum, { sol, HWS }) => ({
+    labels: [...accum.labels, sol],
+    datasets: [
+      {
+        values: [...accum.datasets[0].values, HWS.av]
+      }
+    ]
+  }), { labels: [], datasets: [{values: []}] })
+));
