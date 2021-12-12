@@ -5,12 +5,15 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public --no-clear"
+    "start": "sirv public --no-clear",
+    "format": "prettier --write \"**/*.{svelte,js,jsx,json,md}\""
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
     "@rollup/plugin-replace": "^3.0.0",
+    "prettier": "^2.5.1",
+    "prettier-plugin-svelte": "^2.5.1",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
@@ -19,6 +22,7 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "@carbon/charts-svelte": "^0.53.3",
     "sirv-cli": "^1.0.0"
   },
   "main": "index.js",
