@@ -11,6 +11,8 @@
 
   onMount(async () => {
     await fetchWeatherData();
+    // poll for new data every minute
+    setInterval(fetchWeatherData, 1000 * 60);
   });
 </script>
 
@@ -22,7 +24,7 @@
       width="50px"
       height="50px"
     />
-    <h1>What is the weather on Mars?</h1>
+    <h1>What's the weather on Mars?</h1>
   </div>
   <div class="top">
     <Today />
