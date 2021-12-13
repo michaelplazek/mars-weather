@@ -26,3 +26,11 @@ export const fetchWeatherData = async () => {
 export const formatTemperature = (temp = 0) => `${temp.toFixed(1)}&deg; F`;
 export const formatPressure = (pressure = 0) => `${pressure.toFixed(4)} Pa`;
 export const formatWind = (wind = 0) => `${wind.toFixed(2)} m/s`;
+
+const ICON_MAP = {
+  spring: "spring_icon.png",
+  summer: "summer_icon.png",
+  fall: "autumn_icon.png",
+  winter: "winter_icon.png",
+};
+export const getSeasonIcon = (season) => ICON_MAP[season];

@@ -1,5 +1,10 @@
 import { writable, derived } from "svelte/store";
-import { formatPressure, formatTemperature, formatWind } from "./utils";
+import {
+  formatPressure,
+  formatTemperature,
+  formatWind,
+  getSeasonIcon,
+} from "./utils";
 
 export const weather = writable([]);
 
@@ -13,6 +18,14 @@ export const sols = derived(weather, ($weather) =>
   $weather.map(({ sol }) => sol)
 );
 export const today = derived(weather, ($weather) => $weather[0]);
+export const season = derived(today, ($today) => {
+  const season = $today?.Season;
+  return season && season.charAt(0).toUpperCase() + season.slice(1);
+});
+export const seasonIcon = derived(today, ($today) => {
+  const season = $today?.Season;
+  return season && getSeasonIcon(season);
+});
 export const todayOnEarth = derived(today, ($today) => {
   if ($today) {
     const date = new Date($today?.First_UTC);

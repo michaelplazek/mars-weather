@@ -5,19 +5,22 @@
     todayAverageTemperature,
     todayMinTemperature,
     todayMaxTemperature,
+    seasonIcon,
+    season,
   } from "./store.js";
-  import Cell from "./Cell.svelte";
 </script>
 
-<Cell>
+<div class="wrapper">
   <div class="today">
-    <div class="dates">
-      <h2 class="today-on-mars">
-        {$todayOnMars}
-      </h2>
-      <h3 class="today-on-earth">
-        {$todayOnEarth}
-      </h3>
+    <div class="context">
+      <div class="dates">
+        <h2 class="today-on-mars">
+          {$todayOnMars}
+        </h2>
+        <h3 class="today-on-earth">
+          {$todayOnEarth}
+        </h3>
+      </div>
     </div>
     <div class="weather">
       <h1 class="average">
@@ -28,11 +31,21 @@
         <span class="divider">{@html "&nbsp;|&nbsp;"}</span>
         <span class="max">{@html $todayMaxTemperature}</span>
       </div>
+      <div class="season">
+        <img src={`./images/${$seasonIcon}`} width="20px" height="20px" />
+        <span>{$season}</span>
+      </div>
     </div>
   </div>
-</Cell>
+</div>
 
 <style>
+  .wrapper {
+    display: grid;
+    background: #fffff0;
+    border-radius: 12px;
+    margin: 6px;
+  }
   .today {
     display: flex;
     flex-direction: row;
@@ -62,6 +75,21 @@
   }
   .average {
     margin: inherit;
+  }
+  .context {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .season {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6px;
+  }
+  .season > span {
+    font-weight: 300;
+    margin-left: 6px;
   }
 
   @media (max-width: 400px) {
