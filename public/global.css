@@ -70,10 +70,66 @@ button:focus {
 
 .container {
 	display: grid;
-	grid-template-rows: [top] 50% [bottom] 50%;
+	grid-template-rows: [header] 100px [top] 35% [bottom] auto;
 	grid-template-columns: [left] 30% [right] 70%;
 }
+
+.header {
+	grid-column: 1 / span 2;
+	grid-row: header;
+}
+
 .top {
 	grid-column: 1 / span 2;
 	grid-row: top;
+}
+
+.bottom-left {
+	grid-column: 1;
+	grid-row: bottom;
+}
+
+.bottom-right {
+	grid-column: 2 / span 1;
+	grid-row: bottom;
+}
+
+.split {
+	display: grid;
+	grid-template-rows: 33% 33% 33%;
+	grid-template-columns: auto;
+}
+
+@media(max-width: 900px) {
+	.container {
+		display: grid;
+		grid-template-rows: [header] 100px [first] auto [second] auto [third] auto [fourth] auto;
+		grid-template-columns: auto;
+	}
+
+	.header {
+		grid-column: 1;
+		grid-row: header;
+	}
+
+	.top {
+		grid-column: 1;
+		grid-row: first;
+	}
+
+	.bottom-left {
+		grid-column: 1;
+		grid-row: second;
+	}
+
+	.bottom-right {
+		grid-column: 1;
+		grid-row: third;
+	}
+}
+
+@media(max-width: 400px) {
+	h1 {
+		font-size: 36px;
+	}
 }
