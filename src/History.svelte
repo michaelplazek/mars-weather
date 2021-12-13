@@ -15,7 +15,7 @@
         value: $historicalTemperatures,
         title: "Atmospheric Temperature",
         label: "Temperature",
-        units: "F",
+        units: "&deg;F",
         order: 0,
       },
       {
@@ -57,7 +57,7 @@
       </div>
     </div>
     <h3 class="subtitle">
-      {`${types[type].title} (${types[type].units} per sol)`}
+      {@html `${types[type].title} (${types[type].units} per sol)`}
     </h3>
   </div>
 
