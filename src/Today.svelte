@@ -25,7 +25,7 @@
       </h1>
       <div class="range">
         <span class="min">{@html $todayMinTemperature}</span>
-        <span>{@html "&nbsp;|&nbsp;"}</span>
+        <span class="divider">{@html "&nbsp;|&nbsp;"}</span>
         <span class="max">{@html $todayMaxTemperature}</span>
       </div>
     </div>
@@ -39,6 +39,7 @@
     align-items: center;
     justify-content: center;
     margin: 0;
+    padding: 6px;
   }
   .range {
     display: flex;
@@ -61,5 +62,18 @@
   }
   .average {
     margin: inherit;
+  }
+
+  @media (max-width: 400px) {
+    .range {
+      flex-direction: column;
+    }
+    .divider {
+      display: none;
+    }
+    .dates {
+      align-self: center;
+      margin-right: 20px;
+    }
   }
 </style>

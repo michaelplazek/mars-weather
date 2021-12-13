@@ -30,4 +30,10 @@
     margin-top: 12px;
     margin-bottom: 0;
   }
+
+  @media (max-width: 400px) {
+    .content {
+      padding: 6px;
+    }
+  }
 </style>
