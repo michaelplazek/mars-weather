@@ -38,7 +38,10 @@
   }
 
   let type = 0;
+  let width;
 </script>
+
+<svelte:window bind:innerWidth={width} />
 
 <div class="history">
   <div>
@@ -58,7 +61,10 @@
     </h3>
   </div>
 
-  <div class="chart">
+  <div
+    class="chart"
+    style="width: {width < 900 ? `${width - 20}px` : undefined}"
+  >
     <Chart
       data={types[type].value}
       type="line"
@@ -90,9 +96,6 @@
   }
   .radio {
     margin-right: 12px;
-  }
-  .chart {
-    position: relative;
   }
   .header {
     display: flex;

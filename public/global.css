@@ -99,3 +99,31 @@ button:focus {
 	grid-template-rows: 33% 33% 33%;
 	grid-template-columns: auto;
 }
+
+@media(max-width: 900px) {
+	.container {
+		display: grid;
+		grid-template-rows: [header] 100px [first] auto [second] auto [third] auto [fourth] auto;
+		grid-template-columns: auto;
+	}
+
+	.header {
+		grid-column: 1;
+		grid-row: header;
+	}
+
+	.top {
+		grid-column: 1;
+		grid-row: first;
+	}
+
+	.bottom-left {
+		grid-column: 1;
+		grid-row: second;
+	}
+
+	.bottom-right {
+		grid-column: 1;
+		grid-row: third;
+	}
+}
