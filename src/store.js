@@ -59,35 +59,44 @@ export const todayWindDirection = derived(today, ($today) =>
   $today ? $today?.WD.most_common.compass_point : ""
 );
 
-export const historicalTemperatures = derived(weather, ($weather) => (
-  $weather.reduce((accum, { sol, AT }) => ({
-    labels: [...accum.labels, sol],
-    datasets: [
-      {
-        values: [...accum.datasets[0].values, AT.av]
-      }
-    ]
-  }), { labels: [], datasets: [{values: []}] })
-))
+export const historicalTemperatures = derived(weather, ($weather) =>
+  $weather.reduce(
+    (accum, { sol, AT }) => ({
+      labels: [...accum.labels, sol],
+      datasets: [
+        {
+          values: [...accum.datasets[0].values, AT.av],
+        },
+      ],
+    }),
+    { labels: [], datasets: [{ values: [] }] }
+  )
+);
 
-export const historicalPressures = derived(weather, ($weather) => (
-  $weather.reduce((accum, { sol, PRE }) => ({
-    labels: [...accum.labels, sol],
-    datasets: [
-      {
-        values: [...accum.datasets[0].values, PRE.av]
-      }
-    ]
-  }), { labels: [], datasets: [{values: []}] })
-));
+export const historicalPressures = derived(weather, ($weather) =>
+  $weather.reduce(
+    (accum, { sol, PRE }) => ({
+      labels: [...accum.labels, sol],
+      datasets: [
+        {
+          values: [...accum.datasets[0].values, PRE.av],
+        },
+      ],
+    }),
+    { labels: [], datasets: [{ values: [] }] }
+  )
+);
 
-export const historicalWindSpeeds = derived(weather, ($weather) => (
-  $weather.reduce((accum, { sol, HWS }) => ({
-    labels: [...accum.labels, sol],
-    datasets: [
-      {
-        values: [...accum.datasets[0].values, HWS.av]
-      }
-    ]
-  }), { labels: [], datasets: [{values: []}] })
-));
+export const historicalWindSpeeds = derived(weather, ($weather) =>
+  $weather.reduce(
+    (accum, { sol, HWS }) => ({
+      labels: [...accum.labels, sol],
+      datasets: [
+        {
+          values: [...accum.datasets[0].values, HWS.av],
+        },
+      ],
+    }),
+    { labels: [], datasets: [{ values: [] }] }
+  )
+);
